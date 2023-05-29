@@ -1,0 +1,5 @@
+# ignore Mac system file
+*.DS_store
+
+# Ignore idea folder
+.idea
