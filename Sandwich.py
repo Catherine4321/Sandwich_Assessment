@@ -12,8 +12,8 @@ sandwiches = [["Halloumi and Apricot Jam", 15.95, 0],
                   ["Fish Finger Sandwich With Nordic Dill Salsa", 15.95, 0],
                   ["Grilled Cheddar and Jalapeño Popper Sandwich", 15.95, 0]]
 
-#I plan to remove this list later
-user_order = []
+#counting system to count how many sandwiches are being ordered
+user_order = 0
 
 #function that shows sandwich menu
 def show(L):
@@ -24,13 +24,17 @@ def show(L):
 
 #function that allows users to add or remove sandwiches from their order
 def modify():
+    global sandwiches
     global user_order
     order_modify = input("Would you like to add or remove something from your order? a for add, r for remove: ").lower()
     if order_modify == 'a':
         show(sandwiches)
         user_choice = int(input("Please type the number of the sandwich you want: "))
-        user_order.append(sandwiches[user_choice-1])
-        print("Thank-you for adding {}".format(user_order[len(user_order)-1][0]))
+        user_amount = int(input("How many of this sandwich do you want: "))
+        sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
+        print("Thank-you for adding {}".format(sandwiches[user_choice-1][0]))
+        user_order += user_amount
+        pay()
         #I plan to allow the user to remove an item from their order list
         #I shall do this below
 
@@ -41,7 +45,12 @@ def review():
 
 #function that allows users to pay for their order
 def pay():
-    print("test text")
+    cost = 0
+    for i in range(0, len(sandwiches)):
+        if sandwiches[i][2] > 0:
+            print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
+            cost += sandwiches[i][1]*sandwiches[i][2]
+    print("That comes to ${} total.".format(round(cost,2)))
 
 #function that allows users to choose what they want to do
 def menu():
