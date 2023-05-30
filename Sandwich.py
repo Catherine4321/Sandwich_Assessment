@@ -37,14 +37,41 @@ def show(L):
 def modify():
     global sandwiches
     global user_order
+    get_samount = True
+    get_sname = True
     order_modify = input("Would you like to add or remove something from your order? a for add, r for remove: ").lower()
     if order_modify == 'a':
         show(sandwiches)
-        user_choice = int(input("Please type the number of the sandwich you want: "))
-        user_amount = int(input("How many of this sandwich do you want: "))
-        sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
-        print("Thank-you for adding {}".format(sandwiches[user_choice-1][0]))
-        user_order += user_amount
+        #loop to make sure user doesn't order a sandwich not on the list.
+        while get_sname == True:
+            try:
+                user_choice = int(input("Please type the number of the sandwich you want: "))
+            except ValueError:
+                print("Please type a number.")
+            if user_choice > len(sandwiches):
+                user_choice = int(input("That's not a sandwich on our menu. Please type the number of the sandwich you want: "))
+            else:
+                get_sname = False
+        #loop to make sure that the sandwich order is under 5
+        while get_samount == True:
+            try:
+                user_amount = int(input("How many of this sandwich do you want: "))
+            except ValueError:
+                print("Please only enter numbers.")
+            if user_amount > 5:
+                user_amount = int(input("You may only order 5 sandwiches. How many of this sandwich do you want: "))
+            elif user_amount < 5:
+                sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
+                user_order += user_amount
+                get_samount = False
+                print("Thank-you for adding {}".format(sandwiches[user_choice - 1][0]))
+            elif user_amount == 5:
+                sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
+                user_order += user_amount
+                get_samount = False
+                print("Thank-you for adding {}.".format(sandwiches[user_choice - 1][0]))
+                print("As you can only order 5 sandwiches, you shall be moved to the paying process.")
+                pay()
         #I plan to allow the user to remove an item from their order list
         #I shall do this below
 
