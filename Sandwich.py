@@ -1,3 +1,5 @@
+#when this is true, it keeps the program running in a loop
+running_order = True
 #list of sandwiches customers can buy
 sandwiches = [["Halloumi and Apricot Jam", 15.95, 0],
                   ["Banh Mi With Five-Spice Crispy Pork Belly, Pickled Carrot, Chilli, Coriander and Cucumber", 18.95, 0],
@@ -14,6 +16,15 @@ sandwiches = [["Halloumi and Apricot Jam", 15.95, 0],
 
 #counting system to count how many sandwiches are being ordered
 user_order = 0
+
+def return_to_menu():
+    global running_order
+    ask = input("would you like to go back to the menu? y for yes, n for no: ")
+    if ask == 'y':
+        running_order = True
+    elif ask == 'n':
+        running_order = False
+        print("Thank-you for using our system.")
 
 #function that shows sandwich menu
 def show(L):
@@ -34,7 +45,6 @@ def modify():
         sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
         print("Thank-you for adding {}".format(sandwiches[user_choice-1][0]))
         user_order += user_amount
-        pay()
         #I plan to allow the user to remove an item from their order list
         #I shall do this below
 
@@ -45,15 +55,18 @@ def review():
 
 #function that allows users to pay for their order
 def pay():
+    global user_order
     cost = 0
     for i in range(0, len(sandwiches)):
         if sandwiches[i][2] > 0:
             print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
             cost += sandwiches[i][1]*sandwiches[i][2]
     print("That comes to ${} total.".format(round(cost,2)))
+    user_order = 0
 
 #function that allows users to choose what they want to do
 def menu():
+    global running_order
     welcome_message = """
 Welcome to Marsden Gourmet Sandwich Bar's online ordering system.
 We only sell 5 sandwiches per customer.
@@ -72,15 +85,23 @@ a) Abandon order
     answer = input("What would you like to do: ").lower()
     if answer == 's':
         show(sandwiches)
+        return_to_menu()
     elif answer == 'm':
         modify()
+        return_to_menu()
     elif answer == 'r':
         review()
+        return_to_menu()
     elif answer == 'p':
         pay()
+        return_to_menu()
+    elif answer == 'a':
+        running_order = False
+        print("Thank-you for using our services.")
     else:
         print("I didn't expect that answer.")
 
 #running the program
-menu()
+while running_order == True:
+    menu()
 
