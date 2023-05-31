@@ -82,7 +82,11 @@ def modify():
 
 #function that allows users to review their order
 def review():
-    print("test text")
+    global sandwiches
+    for i in range(0, len(sandwiches)):
+        if sandwiches[i][2] > 0:
+            print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
+
 
 #function that allows users to pay for their order
 def pay():
