@@ -49,43 +49,52 @@ def modify():
             except ValueError:
                 print("Please type a number.")
             if user_choice > len(sandwiches):
-                user_choice = int(input("That's not a sandwich on our menu. Please type the number of the sandwich you want: "))
+                print("That's not a sandwich on our menu.")
+            elif user_choice <= 0:
+                print("That's not a sandwich on our menu.")
             else:
                 get_sname = False
         #loop to make sure that the sandwich order is under 5
         while get_samount == True:
             try:
                 user_amount = int(input("How many of this sandwich do you want: "))
+                if user_amount + user_order > 5:
+                    print("You may only order 5 sandwiches.")
+                elif user_amount < 5:
+                    sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
+                    user_order += user_amount
+                    get_samount = False
+                    print("Thank-you for adding {}".format(sandwiches[user_choice - 1][0]))
+                elif user_amount == 5:
+                    sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
+                    user_order += user_amount
+                    get_samount = False
+                    print("Thank-you for adding {}.".format(sandwiches[user_choice - 1][0]))
+                    print("As you can only order 5 sandwiches, you shall be moved to the paying process.")
+                    pay()
             except ValueError:
                 print("Please only enter numbers.")
-            if user_amount > 5:
-                print("You may only order 5 sandwiches.")
-            elif user_amount < 5:
-                sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
-                user_order += user_amount
-                get_samount = False
-                print("Thank-you for adding {}".format(sandwiches[user_choice - 1][0]))
-            elif user_amount == 5:
-                sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
-                user_order += user_amount
-                get_samount = False
-                print("Thank-you for adding {}.".format(sandwiches[user_choice - 1][0]))
-                print("As you can only order 5 sandwiches, you shall be moved to the paying process.")
-                pay()
+
         #checks to see if order is at 5 sandwiches or not
         if user_order == 5:
             print("As you have 5 sandwiches in your order, you shall be moved to the paying process.")
             pay()
-        #I plan to allow the user to remove an item from their order list
-        #I shall do this below
+    #allows user to remove items from their order
+    elif order_modify == 'r':
+        review()
+        remove = int(input("Please enter the number of the sandwich you would like to remove from your order: "))
+        remove_amount = int(input("Please enter how many you would like to remove: "))
+        sandwiches[remove - 1][2] = sandwiches[remove - 1][2] - remove_amount
+        print("Thank-you. There are now {} {} on your order.".format(sandwiches[remove -1][2], sandwiches[remove - 1][0]))
 
 
 #function that allows users to review their order
 def review():
     global sandwiches
+    print("Here is your order: ")
     for i in range(0, len(sandwiches)):
         if sandwiches[i][2] > 0:
-            print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
+            print("{}. {} {} for ${} \n".format(i+1, sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
 
 
 #function that allows users to pay for their order
@@ -97,6 +106,9 @@ def pay():
             print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
             cost += sandwiches[i][1]*sandwiches[i][2]
     print("That comes to ${} total.".format(round(cost,2)))
+    for i in range(0, len(sandwiches)):
+        if sandwiches[i][2] > 0:
+            sandwiches[i][2] = 0
     user_order = 0
 
 #function that allows users to choose what they want to do
