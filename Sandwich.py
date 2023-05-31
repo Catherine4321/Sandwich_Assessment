@@ -59,7 +59,7 @@ def modify():
             except ValueError:
                 print("Please only enter numbers.")
             if user_amount > 5:
-                user_amount = int(input("You may only order 5 sandwiches. How many of this sandwich do you want: "))
+                print("You may only order 5 sandwiches.")
             elif user_amount < 5:
                 sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
                 user_order += user_amount
@@ -72,6 +72,10 @@ def modify():
                 print("Thank-you for adding {}.".format(sandwiches[user_choice - 1][0]))
                 print("As you can only order 5 sandwiches, you shall be moved to the paying process.")
                 pay()
+        #checks to see if order is at 5 sandwiches or not
+        if user_order == 5:
+            print("As you have 5 sandwiches in your order, you shall be moved to the paying process.")
+            pay()
         #I plan to allow the user to remove an item from their order list
         #I shall do this below
 
@@ -121,6 +125,10 @@ a) Abandon order
         return_to_menu()
     elif answer == 'p':
         pay()
+        print("This order has been fulfilled, any sandwiches ordered now will go to a new order.")
+        for i in range(0, len(sandwiches)):
+            if sandwiches[i][2] > 0:
+                sandwiches[i][2] = 0
         return_to_menu()
     elif answer == 'a':
         running_order = False
