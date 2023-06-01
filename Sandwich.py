@@ -37,55 +37,67 @@ def show(L):
 def modify():
     global sandwiches
     global user_order
-    get_samount = True
-    get_sname = True
-    order_modify = input("Would you like to add or remove something from your order? a for add, r for remove: ").lower()
-    if order_modify == 'a':
-        show(sandwiches)
-        #loop to make sure user doesn't order a sandwich not on the list.
-        while get_sname == True:
-            try:
-                user_choice = int(input("Please type the number of the sandwich you want: "))
-            except ValueError:
-                print("Please type a number.")
-            if user_choice > len(sandwiches):
-                print("That's not a sandwich on our menu.")
-            elif user_choice <= 0:
-                print("That's not a sandwich on our menu.")
-            else:
-                get_sname = False
-        #loop to make sure that the sandwich order is under 5
-        while get_samount == True:
-            try:
-                user_amount = int(input("How many of this sandwich do you want: "))
-                if user_amount + user_order > 5:
-                    print("You may only order 5 sandwiches.")
-                elif user_amount < 5:
-                    sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
-                    user_order += user_amount
-                    get_samount = False
-                    print("Thank-you for adding {}".format(sandwiches[user_choice - 1][0]))
-                elif user_amount == 5:
-                    sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
-                    user_order += user_amount
-                    get_samount = False
-                    print("Thank-you for adding {}.".format(sandwiches[user_choice - 1][0]))
-                    print("As you can only order 5 sandwiches, you shall be moved to the paying process.")
-                    pay()
-            except ValueError:
-                print("Please only enter numbers.")
+    get_sandwich = True
+    while get_sandwich == True:
+        get_samount = True
+        get_sname = True
+        get_again = True
+        order_modify = input("Would you like to add or remove something from your order? a for add, r for remove: ").lower()
+        if order_modify == 'a':
+            show(sandwiches)
+            #loop to make sure user doesn't order a sandwich not on the list.
+            while get_sname == True:
+                try:
+                  user_choice = int(input("Please type the number of the sandwich you want: "))
+                  if user_choice > len(sandwiches):
+                      print("That's not a sandwich on our menu.")
+                  elif user_choice <= 0:
+                      print("That's not a sandwich on our menu.")
+                  else:
+                      get_sname = False
+                except ValueError:
+                    print("Please type a number.")
+            #loop to make sure that the sandwich order is under 5
+            while get_samount == True:
 
+                try:
+                    user_amount = int(input("How many of this sandwich do you want: "))
+                    if user_amount + user_order > 5:
+                        print("You may only order 5 sandwiches.")
+                    elif user_amount + user_order <= 5:
+                        sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
+                        user_order += user_amount
+                        get_samount = False
+                        print("Thank-you for adding {} {}".format(user_amount, sandwiches[user_choice - 1][0]))
+                        if user_order == 5:
+                            print("As you have 5 sandwiches in your order, you shall move to the paying process.")
+                            get_sandwich = False
+                            get_again = False
+                            pay()
+                        while get_again == True:
+                            again = input("Would you like to add or remove more from your order? y for yes, n for no: ")
+                            if again == 'y':
+                                get_sandwich = True
+                                get_again = False
+                            elif again == 'n':
+                                get_sandwich = False
+                                get_again = False
+                            else:
+                                print("That's not what I expected.")
+                                get_again = True
+                except ValueError:
+                    print("Please only enter numbers.")
         #checks to see if order is at 5 sandwiches or not
         if user_order == 5:
             print("As you have 5 sandwiches in your order, you shall be moved to the paying process.")
             pay()
     #allows user to remove items from their order
-    elif order_modify == 'r':
-        review()
-        remove = int(input("Please enter the number of the sandwich you would like to remove from your order: "))
-        remove_amount = int(input("Please enter how many you would like to remove: "))
-        sandwiches[remove - 1][2] = sandwiches[remove - 1][2] - remove_amount
-        print("Thank-you. There are now {} {} on your order.".format(sandwiches[remove -1][2], sandwiches[remove - 1][0]))
+        elif order_modify == 'r':
+            review()
+            remove = int(input("Please enter the number of the sandwich you would like to remove from your order: "))
+            remove_amount = int(input("Please enter how many you would like to remove: "))
+            sandwiches[remove - 1][2] = sandwiches[remove - 1][2] - remove_amount
+            print("Thank-you. There are now {} {} on your order.".format(sandwiches[remove -1][2], sandwiches[remove - 1][0]))
 
 
 #function that allows users to review their order
@@ -105,7 +117,11 @@ def pay():
         if sandwiches[i][2] > 0:
             print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
             cost += sandwiches[i][1]*sandwiches[i][2]
+        elif sandwiches[i][2] == 0:
+            print("There is nothing in your order to pay for! Try again once ordering at least one sandwich.")
+            return
     print("That comes to ${} total.".format(round(cost,2)))
+    print("This order has been fulfilled, any sandwiches ordered now will go to a new order.")
     for i in range(0, len(sandwiches)):
         if sandwiches[i][2] > 0:
             sandwiches[i][2] = 0
@@ -141,10 +157,6 @@ a) Abandon order
         return_to_menu()
     elif answer == 'p':
         pay()
-        print("This order has been fulfilled, any sandwiches ordered now will go to a new order.")
-        for i in range(0, len(sandwiches)):
-            if sandwiches[i][2] > 0:
-                sandwiches[i][2] = 0
         return_to_menu()
     elif answer == 'a':
         running_order = False
