@@ -16,6 +16,8 @@ sandwiches = [["Halloumi and Apricot Jam", 15.95, 0],
 
 #counting system to count how many sandwiches are being ordered
 user_order = 0
+#counting system that counts how many orders have been ordered
+order_number = 0
 
 def return_to_menu():
     global running_order
@@ -65,10 +67,10 @@ def modify():
                     if user_amount + user_order > 5:
                         print("You may only order 5 sandwiches.")
                     elif user_amount + user_order <= 5:
-                        sandwiches[user_choice][2] = sandwiches[user_choice][2] + user_amount
+                        sandwiches[user_choice-1][2] = sandwiches[user_choice-1][2] + user_amount
                         user_order += user_amount
                         get_samount = False
-                        print("Thank-you for adding {} {}".format(user_amount, sandwiches[user_choice - 1][0]))
+                        print("Thank-you for adding {} {}".format(sandwiches[user_choice-1][2], sandwiches[user_choice - 1][0]))
                         if user_order == 5:
                             print("As you have 5 sandwiches in your order, you shall move to the paying process.")
                             get_sandwich = False
@@ -112,17 +114,31 @@ def review():
 #function that allows users to pay for their order
 def pay():
     global user_order
+    global order_number
+    sandwich_amount = 0
     cost = 0
+    if user_order == 0:
+        print("You haven't ordered any sandwiches! Please place an order before trying to pay.")
+        return
+    user_name = input("What is the name you would like to put this order under? : ")
+    user_phone = input("What is the phone number you would like to place this order under? : ")
     for i in range(0, len(sandwiches)):
         if sandwiches[i][2] > 0:
             print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
             cost += sandwiches[i][1]*sandwiches[i][2]
-        elif sandwiches[i][2] == 0:
-            print("There is nothing in your order to pay for! Try again once ordering at least one sandwich.")
-            return
+            sandwich_amount += sandwiches[i][2]
+
+    print("Thank-you {} for placing your order,".format(user_name))
     print("That comes to ${} total.".format(round(cost,2)))
+    order_number += 1
+    pick_or_deliver = input("Would you like to pick up your order, or have it delivered? There is a $3 delivery fee. p for pick up, d for delivery: ")
+    if pick_or_deliver == 'p':
+        print("Thank-you for your order. Your order is order #{}, and should take about {} minutes.".format(order_number, sandwich_amount * 10))
+        print("We will call you on this number: {}".format(user_phone))
+    if pick_or_deliver == 'd':
+        cost += 3
     print("This order has been fulfilled, any sandwiches ordered now will go to a new order.")
-    for i in range(0, len(sandwiches)):
+    for i in range(0, len(sandwiches)-1):
         if sandwiches[i][2] > 0:
             sandwiches[i][2] = 0
     user_order = 0
