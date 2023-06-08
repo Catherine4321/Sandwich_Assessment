@@ -43,13 +43,42 @@
 					<hr>
 
     <!-- Heading levels -->
-    <h1>Sprint 1</h1>
-<p>For this sprint,I planned to make a menu that would display all available options to the user. That was all I wanted the program to do at that stage.</p>
-				<p>Picture of spreadsheet as single table, first version</p>
+    <h1>Sprint 1， 2， 3 and 4:</h1>
+<p>For sprint 1,I planned to make a menu that would display all available options to the user. That was all I wanted the program to do at that stage. <br> Then in sprint 2, 3 and 4 I created the functions that would allow the user to interact with the program further.</p>
+				<p>Sprint 2 included making a function that listed all purchasable sandwiches for the user, sprint 3 included creating a function to add items to an order, and sprint 4 included creating a function that allowed the user to pay for their order. <br>I added the ability to remove items from an order later when I made a loop that ran the menu function more than once, so that there could be something on the user's order to remove.</p>
+				<p>All of these sprints made functions that were very basic editions of what they would be in the future.</p>
+				<h3>Image of first error: This error would have occurred in sprint 1</h3>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/First_error.png" alt="Image of first error">
+				<p>In this image, it shows that I got an error where even if I inputted an expected answer, the program would go straight to the else condition. The issue was I accidentally left off the end brackets from the .lower() I put at the end of the input function to ensure that all user input here would be read in lower case letters, to ensure that capital letters wouldn't confuse my system.</p>
+				<p>How did I fix this error: I added the brackets at the end of this line.</p>
+				<p>One thing I thought about doing was adding all of the user's items to a list to keep track of them. This could have its advantages as then I could easily access every name of every sandwich the user ordered. However, I decided in the end that it would be easier for me to not use a list to store all of the user's orders. For one, it could get messy if the user ordered the same sandwich more than once. I had a better solution for storing the user's order. Instead of keeping track of every name of every sandwich the user ordered, I added an extra variable, a number, to the end of each list in the multidimensional list of sandwiches.</p>
+				<p>Everytime the user ordered a specific sandwich, the number at the end of the list containing that sandwich's information would go up by one. This would be much simpler to code and deal with in the long term, as instead of making a long list of sandwich names and having that sandwich's information end up in two separate lists, I would be able to have one list and simply count how many of that sandwich was ordered. I also implemented a counter that increased by how many sandwiches were being ordered in total, so that the user could never order more than 5 sandwiches. <br>Overall: single number at end of list prevented me from making two multidimensional lists of essentially the same thing (lists of sandwich information), and made the code easier to work with and tidier due to this lack of repetition.</p>
+				<p>In this earlier version however, I still had it as a list. This is important to consider for the next error.</p>
+				<h3>Error 2: This would have occured during sprint 3</h3>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Second_error.png" alt="Image of Second error">
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Code_of_second_error.png" alt="Code of second error">
+				<p>In this error, what happened was I first added the sandwich that the user chose to the order list, then I tried to reference that item in the new list to print a thank you message. What I forgot to do was add a -1 to the length of the list, so it was trying to reference an item in the list that did not exist. I tried to use the value of the length of the list minus one to access the latest user order, but I forgot the -1.</p>
+				<p>Here's the fix to the error:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Second_error_fixed.png" alt="second error fixed">
+				<p>Here is the fix to the code I did when I changed user_order from a list to a number counter:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/number_instead.png" alt="image showing how user_order changed from list to int affects part of code">
+				<p>Here I added a thank-you message for ordering a sandwich, I wanted to make sure that the program could not only access the right sandwich, but would also count the amount of sandwich ordered properly. I hadn't quite made it so that the system added to the numbers at the end of the lists yet, I was expecting to see a zero at the end of the list, but here is the result of making sure that the right sandwich is referenced:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/sandwich_reference.png" alt="correctly identifies sandwich">
+				<p>It can be seen above that the system was indeed able to accurately locate the correct sandwich on the list.</p>
+				<p>I also made it so that the user could add more than one sandwich at a time as long as these sandwiches were the same type. Below is an image displaying that counters counting how many sandwiches being ordered were working. It isn't very obvious, but one of the counters is counting how many sandwiches have been ordered in total, and one is the number at the end of the sandwich's list showing how many of that individual sandwich is being ordered. These numbers would be easier to tell apart if there was a loop that allowed the user to order at more than one time. These counters were only added for testing.</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Counters_working.png" alt="counters showing how many sandwiches are ordered.">
+				<p>In sprint 4, I allowed users to pay for their order. Here is an image depicting how this receipt looked in the earlier stages:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/early_receipt.png" alt="example of an earlier version of receipt">
+				<p>Of course, it is unreasonable to ask a user to pay a price with more than 2 decimal places. I used the .round() function to round the price to two decimal places because I soon realised how ridiculous these prices were.</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/with_round.png" alt="Image of rounding occuring in price">
+				<p>Finally, here is an example of how I was laying my sprints out on my planning board</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/sprints.png" alt="Layout of sprints">
 				<p>Reflection (+ anything about relevant implications)</p>
+				<p>These four sprints were relatively uneventful and very straight forward/basic, which is why I grouped them together. Quite obviously the program isn't finished and I plan to add many more features to it in the future. I was able to complete these four sprints in about the time of one lesson. In the next four sprints, I plan to make a loop that will allow the program to run more than once at a time (so that the user can observe menu and add things, add things in more than one go, etc...), I plan to allow the user to quit the program/abandon their order, give the user a way to look over their order, and create the ability to remove from the order.</p>
+
 <hr>
-<h1>Version Two</h1>
-<p>Plan with data types and restrictions on data input</p>
+<h1>Sprints 5, 6, 7 and 8:</h1>
+<p>For these sprints, I plan to add the ability for the program to run more than once at a time (add a loop), add the ability to quit the program, add the ability to review an order, and add the ability to remove from the order.</p>
 <p>Link to data base</p>
 <p>Sample queries</p>
  <p>Reflection (+ anything about relevant implications)</p>
