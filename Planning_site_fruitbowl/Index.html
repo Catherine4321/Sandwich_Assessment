@@ -78,7 +78,7 @@
 				<p>These four sprints were relatively uneventful and very straight forward/basic, which is why I grouped them together. Quite obviously the program isn't finished and I plan to add many more features to it in the future. I was able to complete these four sprints in about the time of one lesson. In the next four sprints, I plan to make a loop that will allow the program to run more than once at a time (so that the user can observe menu and add things, add things in more than one go, etc...), I plan to allow the user to quit the program/abandon their order, give the user a way to look over their order, and create the ability to only order 5 sandwiches.</p>
 
 <hr>
-<h1>Sprints 5, 6, 7 and 8:</h1>
+<h1>Sprints 5, 6, 7, 8:</h1>
 <p>For these sprints, I plan to add the ability for the program to run more than once at a time (add a loop), add the ability to quit the program, add the ability to review an order, and add the ability to only order 5 sandwiches.</p>
 				<p>Here is proof that I got the abandon order function working:</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/abandon_order.png" alt="abandoning order works">
@@ -111,13 +111,13 @@
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/no_condition_for_finish_loop.png" alt="Here is a display of a loop with no end term">
 				<p>This code shows the condition that ends the loop:</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/ending_loop.png" alt="Condition to end loop">
-				<h3>Error 5:</h3>
+				<h3>Error 6:</h3>
 				<p>Here my program was thanking the user for ordering a sandwich, but it only thanked the user for ordering a specific sandwich when the paying process had occurred:</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Late_Thanks.png" alt="Thanks being said late.">
 				<p>Here is the part of the code that was causing the error:</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Why_Late_Thanks.png" alt="Part of code causing the late thanks">
 				<p>Because this print was put after the pay function was called upon, the pay function would run and then it would print the thanks message.</p>
-				<h3>Error 6:</h3>
+				<h3>Error 7:</h3>
 				<p>Here, I had a similar error that I had before. Here the program tries to grab the user's input twice, once more than it should. This will be because I accidentally made the error message an input again. Because the message that appeared was an input trying to grab a new value, it slowed the process down as the loop went right back to the start of the process anyway and asked the user twice. The message should have just been a print.</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Asking_values_twice.png" alt="asks user how many sandwiches they want twice">
 				<p>As I mentioned above, the error was fixed by replacing the input function letting the user know an error had happened, with a print function as shown below:</p>
@@ -134,19 +134,42 @@
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Fix_counters_not_reset.png" alt=" Code for counters reset">
 				<p>Here is an image of the receipt being clear due to all counters being reset:</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Counters_reset.png" alt="Counters reset">
-				<h3>Error 7</h3>
+				<h3>Error 8</h3>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_7.png" alt="Able to pay for more than 5 sandwiches">
 				<p>I had an issue where I was able to order more than 5 sandwiches in total, and the program would allow the user to order 5 of one type of sandwich when other sandwiches were on the order. This is the error code that I had before I fixed this error:</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Sandwich_control.png" alt="Error code that's trying to make sure only 5 of one sandwich can be ordered.">
 				<p>Below is the code that fixes this error:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets">
 				<p>I then had the issue that although my program would stop the user from ordering more than one type of sandwich at a time, it didn't account for previous orders of said sandwich. To combat this, I used this piece of code below:</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_7_fix.png" alt="Making sure only 5 of one sandwich can be ordered.">
 				<p>Here is proof that error 7 was fixed:</p>
 				<p>I then had the issue that although my program would stop the user from ordering more than one type of sandwich at a time, it didn't account for previous orders of said sandwich. To combat this, I used this piece of code below:</p>
 				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_7_fix_proof.png" alt="Making sure only 5 of one sandwich can be ordered.">
 				<p>Another error I accidentally came across and tried to fix/make top priority while working on this project was this error here, error 8</p>
-				<h3>Error 8:</h3>
+				<h3>Error 9:</h3>
 				<p>Here I realised that I had addressed the issue of the user asking for a sandwich not on the list with that number being bigger than the amount of sandwiches on the list, but I never thought about if the sandwich they were asking for was smaller than the amount of sandwiches on the list, so here I try to account for that.</p>
+				<p>Here I tried to test ordering both sandwiches with an index number bigger than the length of the list and also smaller than the list. It didn't work, partly because I used the input function twice to get the user's answer. That wasn't the full problem, but it was part of it.</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Another_instance_of_input.png" alt="asking for the user's input twice.">
+				<p>Here's another example of this error below:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/example_error_9.png" alt="asking for the user's input twice.">
+				<p>Here is an example of this happening</p>
+				<p>One of the issues here is that I made it so that instead of printing the problem to the user, it uses the input function again to ask for another input. I think that was the day where I was quite tired, and I wrote a lot of code before I tested it.</p>
+				<p>That wasn't the only issue, as seen when I resolved the double input:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/no_input_twice.png" alt="Error still happening.">
+				<p>Code causing error:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/error_code_9.png" alt="Code responsible.">
+				<p>Because there was an or statement, I think the program was getting confused and started to refuse all values. When I separated these conditions, the program worked again. I tried this code below to try and fix this, this code didn't work:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/error_9_fixed_code.png" alt="Code that fixed error.">
+				<p>This code wouldn't have worked because I want the user to input a number that is less than the length of the sandwiches list. This code prevents you from ordering sandwiches with a value less than the list length</p>
+				<p>Here is an example of the code that fixed this:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Fixed_code_9_real.png" alt="Code responsible.">
+				<p>The thing that fixed it is the <= 0, this means that it won't accept values of 0 or less.</p>
+				<p>Here is an example of this error fixed:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_9_fixed.png" alt="Code responsible.">
+				<h3>Conclusion for these sprints:</h3>
+				<p>At the end of these sprints, I successfully made it so that the program would run more than once, I gave the user the ability to abandon the order, I added the ability for the user to review their order, I also made it so that only 5 sandwiches could be ordered at a time. I think that there are definitely things that could be improved on at this stage, for example I could show the user how many of a certain sandwich they've ordered in the thank you message thanking them for adding to their order.</p>
+				<p>In the next 4 sprints, I want to be able to give the user the choice of adding more types of sandwiches to their order before the program goes back to the menu or to remove orders even if they've already removed or added, I would like to give the user the ability to remove sandwiches from their order, I would like to make it so that the user can't pay if they have 0 sandwiches in their order.</p>
+
 
 
 
@@ -156,9 +179,42 @@
 <p>Sample queries</p>
  <p>Reflection (+ anything about relevant implications)</p>
 <hr>
-<h1>Version Three</h1>
-<p>Plan with data types and restrictions on data input</p>
-<p>Link to data base</p>
+<h1>Sprints 9, 10, 11</h1>
+<p>In the next 4 sprints, I would like to be able to allow the user to add or remove a sandwich from their order before going back to the menu again, I would like to give the user the ability to remove a sandwich from their order and I would like to make it so that the user cannot pay for an order if they have 0 sandwiches in their order.</p>
+<h3>Error 10</h3>
+<p>Firstly I tried to make a loop in the adding/removing section of the program, but I accidentally made it so that the user would get stuck in the loop as seen below:</p>
+<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_10_example.png" alt="Not able to break from loop.">
+<p>Here is the code that is responsible for this error:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_10_code.png" alt="Code responsible for error 10.">
+				<p>The problem with this code here, is that while get_again == True, the loop will continue happening, and I accidentally made it so that when the user said they wanted to add or remove more from their order before going back to the menu, get_again would stay true when it really should be false so that the loop can be exited and the order can continue.</p>
+				<!--<h3>Error 11</h3>
+				<p>When I fixed error 10, I suddenly got this error here, where the program was asking me how much of a sandwich I wanted when I hadn't stated what sandwich I wanted. Here is an example:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_11.png" alt="Asking how much before asking what.">-->
+				<h3>Error 11</h3>
+				<p>This error was one of the biggest errors that I encountered during this program. It took me the longest to address. It happened when I wanted to make it so that if there was nothing in an order, the user wouldn't be able to pay for the order, but it told me I couldn't pay despite having 5 sandwiches in my order. Here is an example of this error:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_11_example.png" alt="Example of not allowing to pay.">
+				<p>What happened here was that I had this piece of code:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_11_code.png" alt="Example of not allowing to pay code.">
+				<p>This code meant that if you hadn't ordered any of the first sandwich, as soon as it noticed none of that sandwich had been ordered, it would exit the loop and would prevent you from paying. Then the program realised you had 5 sandwiches in your order and sent you straight to pay etc. To fix this, I made another statement that checked for if user_order, the variable that keeps count of how many orders have been ordered = 0. That solved the problem.</p>
+				<h3>Error 12</h3>
+				<p>When I fixed error 11, I made the program print what the value was of each individual sandwich counter, and I found that it wasn't printing the length of the list, it was one short. for the range of the for loop, I accidentally put a minus one after the len() function, which meant that the loop would only go for the length of the sandwich list minus one, it would always miss the last sandwich. Here is an example:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_12.png" alt="Example of missing last sandwich.">
+				<h3>Error 13</h3>
+				<p>Here I accidentally mixed up what order the vairables should've been printed in. As you will see below, it mixed up the user's name and the amount that the user had to pay. Here is an example:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_13.png" alt="Mixes up username and amount to pay.">
+				<p>Here is an example of the code that caused this error:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_13_code.png" alt="Mixes up username and amount to pay code.">
+				<p>Here is proof that this error was fixed:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_13_fixed.png" alt="Fixed error 13.">
+				<h3>Error 14</h3>
+				<p>I wanted to multiply the amount of sandwiches by 10 to give an estimated amount of time to make the sandwiches in, and then if the user wanted their sandwiches delivered, I would add on the amount of time it would take to make an extra sandwich. I put order of operations in wrong and got this error:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_14.png" alt="Wrong amount of time.">
+				<p>Here is the code that was responsible for this:</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Order_of_operations.png" alt="Error 14 code.">
+				<p>To fix this error, I added one to the total amount of sandwiches before multiplying by putting the amount of sandwiches the user was ordering in brackets while adding to that amount.</p>
+				<h3>Adding quality of life improvements:</h3>
+				<p>Here I realised that there was no reminder of how many sandwiches a user already ordered if they were trying to order another sandwich/more sandwiches. For the convenience of the user, I added the ability for the program to alert the user to how many sandwiches they had already ordered if they tried to order too many sandwiches.</p>
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Quality_of_life.png" alt="Tells user how many sandwiches they've ordered.">
 <p> Query examples with tables as examples of how the data would be presented</p>
  <p>Reflection (+ anything about relevant implications)</p>
 <hr>
