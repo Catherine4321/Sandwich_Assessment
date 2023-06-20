@@ -174,12 +174,12 @@ def pay():
     user_name = input("What is the name you would like to put this order under? : ")
     while get_user_phone == True:
         try:
-            user_phone = int(input("What is the phone number you would like to place this order under? : "))
+            user_phone = int(input("What is the phone number you would like to place this order under? Please exclude the +64: "))
             list_of_digits = [int(i) for i in str(user_phone)]
            # print(list_of_digits)
             if len(list_of_digits) < 7:
                 print(error_phone)
-            elif len(list_of_digits) > 10:
+            elif len(list_of_digits) > 11:
                 print(error_phone)
             else:
                 print("Thank you for entering your number.")
