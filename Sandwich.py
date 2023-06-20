@@ -21,9 +21,11 @@ user_order = 0
 #counting system that counts how many orders have been ordered
 order_number = 0
 
+#function that checks if user wants to return to menu
 def return_to_menu():
     global running_order
     get_ask = True
+    #loop that validates user's response
     while get_ask == True:
         ask = input("would you like to go back to the menu? y for yes, n for no: ")
         if ask == 'y':
@@ -58,6 +60,7 @@ def modify():
         get_again = True
         get_menu = True
         order_modify = input("Would you like to add or remove something from your order? a for add, r for remove: ").lower()
+        #loop to check if user wants to see the menu
         if order_modify == 'a':
             while get_menu == True:
                 ask = input("Would you like to see the menu? y for yes, n for no: ").lower()
@@ -119,6 +122,7 @@ def modify():
             review()
             get_remove = True
             get_remove_amount = True
+            #loop that validates user input to make sure sandwich can be removed from order
             while get_remove == True:
                 try:
                     remove = int(input("Please enter the number of the sandwich you would like to remove from your order: "))
@@ -132,6 +136,7 @@ def modify():
                         get_remove = False
                 except ValueError:
                     print("Please only type numbers. Try again.")
+            #loop that makes sure that user doesn't try to remove more or less sandwiches than they have in their order
             while get_remove_amount == True:
                 try:
                     remove_amount = int(input("Please enter how many you would like to remove: "))
@@ -172,11 +177,11 @@ def pay():
         print("You haven't ordered any sandwiches! Please place an order before trying to pay.")
         return
     user_name = input("What is the name you would like to put this order under? : ")
+    #loop that validates the user's phone number
     while get_user_phone == True:
         try:
             user_phone = int(input("What is the phone number you would like to place this order under? Please exclude the +64: "))
             list_of_digits = [int(i) for i in str(user_phone)]
-           # print(list_of_digits)
             if len(list_of_digits) < 7:
                 print(error_phone)
             elif len(list_of_digits) > 11:
@@ -186,7 +191,7 @@ def pay():
                 get_user_phone = False
         except ValueError:
             print("Please only type numbers. Try again.")
-
+    #prints out the user's order and cost of each sandwich
     for i in range(0, len(sandwiches)):
         if sandwiches[i][2] > 0:
             print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
@@ -196,6 +201,7 @@ def pay():
     print("Thank-you {} for placing your order,".format(user_name))
     print("That comes to ${} total.".format(round(cost,2)))
     order_number += 1
+    #loop that validates if the user would like to have their order picked up or delivered
     while get_pick_or_deliver == True:
         pick_or_deliver = input("Would you like to pick up your order, or have it delivered? There is a $3 delivery fee. p for pick up, d for delivery: ")
         if pick_or_deliver == 'p':
@@ -236,6 +242,7 @@ a) Abandon order
     print(lines)
     print(welcome_message)
     print(lines)
+    #loop that validates the user's answer to what they would like to do
     while get_user_input == True:
         answer = input("What would you like to do: ").lower()
         if answer == 's':
