@@ -1,6 +1,6 @@
-#when this is true, it keeps the program running in a loop
+# when this is true, it keeps the program running in a loop
 running_order = True
-#list of sandwiches customers can buy
+# list of sandwiches customers can buy
 sandwiches = [["Halloumi and Apricot Jam", 15.95, 0],
                   ["Banh Mi With Five-Spice Crispy Pork Belly, Pickled Carrot, Chilli, Coriander and Cucumber", 18.95, 0],
                   ["Roasted Beetroot, Carrot, Spiced Nuts and Whipped Feta", 15.95, 0],
@@ -13,15 +13,15 @@ sandwiches = [["Halloumi and Apricot Jam", 15.95, 0],
                   ["Milanese and Gremolata Panini", 16.95, 0],
                   ["Fish Finger Sandwich With Nordic Dill Salsa", 15.95, 0],
                   ["Grilled Cheddar and Jalapeño Popper Sandwich", 15.95, 0]]
+# list that could store previous orders
+# past_order = []
 
-past_order = []
-
-#counting system to count how many sandwiches are being ordered
+# counting system to count how many sandwiches are being ordered
 user_order = 0
-#counting system that counts how many orders have been ordered
+# counting system that counts how many orders have been ordered
 order_number = 0
 
-#function that checks if user wants to return to menu
+# function that checks if user wants to return to menu
 def return_to_menu():
     global running_order
     get_ask = True
@@ -42,14 +42,14 @@ def return_to_menu():
         else:
             print("That's not an answer I was expecting. Please try again.")
 
-#function that shows sandwich menu
+# function that shows sandwich menu
 def show(L):
     print("Here is the menu: ")
     for i in range(0, len(L)):
         sandwich_list = "{}. {}, ${}".format(i+1, L[i][0], L[i][1])
         print(sandwich_list)
 
-#function that allows users to add or remove sandwiches from their order
+# function that allows users to add or remove sandwiches from their order
 def modify():
     global sandwiches
     global user_order
@@ -60,7 +60,7 @@ def modify():
         get_again = True
         get_menu = True
         order_modify = input("Would you like to add or remove something from your order? a for add, r for remove: ").lower()
-        #loop to check if user wants to see the menu
+        # loop to check if user wants to see the menu
         if order_modify == 'a':
             while get_menu == True:
                 ask = input("Would you like to see the menu? y for yes, n for no: ").lower()
@@ -72,7 +72,7 @@ def modify():
                 else:
                     print("That wasn't an answer I was expecting. Please try again.")
                     get_menu = True
-            #loop to make sure user doesn't order a sandwich not on the list.
+            # loop to make sure user doesn't order a sandwich not on the list.
             while get_sname == True:
                 try:
                   user_choice = int(input("Please type the number of the sandwich you want: "))
@@ -84,7 +84,7 @@ def modify():
                       get_sname = False
                 except ValueError:
                     print("Please type a number.")
-            #loop to make sure that the sandwich order is under 5
+            # loop to make sure that the sandwich order is under 5
             while get_samount == True:
                 try:
                     user_amount = int(input("How many of this sandwich do you want: "))
@@ -113,16 +113,16 @@ def modify():
                                 get_again = True
                 except ValueError:
                     print("Please only enter numbers.")
-        #checks to see if order is at 5 sandwiches or not
+        # checks to see if order is at 5 sandwiches or not
         elif user_order == 5:
             print("As you have 5 sandwiches in your order, you shall be moved to the paying process.")
             pay()
-        #allows user to remove items from their order
+        # allows user to remove items from their order
         elif order_modify == 'r':
             review()
             get_remove = True
             get_remove_amount = True
-            #loop that validates user input to make sure sandwich can be removed from order
+            # loop that validates user input to make sure sandwich can be removed from order
             while get_remove == True:
                 try:
                     remove = int(input("Please enter the number of the sandwich you would like to remove from your order: "))
@@ -136,7 +136,7 @@ def modify():
                         get_remove = False
                 except ValueError:
                     print("Please only type numbers. Try again.")
-            #loop that makes sure that user doesn't try to remove more or less sandwiches than they have in their order
+            # loop that makes sure that user doesn't try to remove more or less sandwiches than they have in their order
             while get_remove_amount == True:
                 try:
                     remove_amount = int(input("Please enter how many you would like to remove: "))
@@ -155,7 +155,7 @@ def modify():
             print("That wasn't an answer I was expecting. Please try again.")
 
 
-#function that allows users to review their order
+# function that allows users to review their order
 def review():
     global sandwiches
     print("Here is your order: ")
@@ -164,7 +164,7 @@ def review():
             print("{}. {} {} for ${} \n".format(i+1, sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
 
 
-#function that allows users to pay for their order
+# function that allows users to pay for their order
 def pay():
     global user_order
     global order_number
@@ -177,7 +177,7 @@ def pay():
         print("You haven't ordered any sandwiches! Please place an order before trying to pay.")
         return
     user_name = input("What is the name you would like to put this order under? : ")
-    #loop that validates the user's phone number
+    # loop that validates the user's phone number
     while get_user_phone == True:
         try:
             user_phone = int(input("What is the phone number you would like to place this order under? Please exclude the +64: "))
@@ -191,7 +191,7 @@ def pay():
                 get_user_phone = False
         except ValueError:
             print("Please only type numbers. Try again.")
-    #prints out the user's order and cost of each sandwich
+    # prints out the user's order and cost of each sandwich
     for i in range(0, len(sandwiches)):
         if sandwiches[i][2] > 0:
             print("- {} {} for ${} \n".format(sandwiches[i][2], sandwiches[i][0], sandwiches[i][1]))
@@ -201,7 +201,7 @@ def pay():
     print("Thank-you {} for placing your order,".format(user_name))
     print("That comes to ${} total.".format(round(cost,2)))
     order_number += 1
-    #loop that validates if the user would like to have their order picked up or delivered
+    # loop that validates if the user would like to have their order picked up or delivered
     while get_pick_or_deliver == True:
         pick_or_deliver = input("Would you like to pick up your order, or have it delivered? There is a $3 delivery fee. p for pick up, d for delivery: ")
         if pick_or_deliver == 'p':
@@ -223,7 +223,7 @@ def pay():
             sandwiches[i][2] = 0
     user_order = 0
 
-#function that allows users to choose what they want to do
+# function that allows users to choose what they want to do
 def menu():
     global running_order
     get_user_input = True
@@ -242,7 +242,7 @@ a) Abandon order
     print(lines)
     print(welcome_message)
     print(lines)
-    #loop that validates the user's answer to what they would like to do
+    # loop that validates the user's answer to what they would like to do
     while get_user_input == True:
         answer = input("What would you like to do: ").lower()
         if answer == 's':
@@ -264,11 +264,11 @@ a) Abandon order
         elif answer == 'a':
             running_order = False
             get_user_input = False
-            print("Thank-you for using our services.")
+            print("Thank-you for using our services. No sandwiches have been purchased.")
         else:
             print("I didn't expect that answer. Try again.")
 
-#running the program
+# running the program
 while running_order == True:
     menu()
 
