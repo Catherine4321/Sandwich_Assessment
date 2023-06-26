@@ -28,21 +28,26 @@
 			<ul class="nav">
 				<li><a href="#1234">Sprints 1, 2, 3 and 4</a></li>
 				<li><a href="#5678">Sprints 5, 6, 7, 8</a></li>
-				<li><a href="#91011">Sprints 9, 10, 11</a></li>
-				<li><a href="#1213">Sprints 12 and 13</a></li>
+				<li><a href="#91011">Sprints 9, 10, 11, 12 and 13</a></li>
+				<li><a href="#1213">Sprints 14 and 15</a></li>
 			</ul>
 		</div>
 		<div class="content">
+			<h1>Relevant Implications I will address:</h1>
+			<ul>
+				<li>Functionality: I will address functionality by testing my program several times. I will make sure that my program doesn't unexpectedly crash, and I will add lots of validation to my program to make sure that any invalid input that the user might make will not immediately crash the program.</li>
+				<li>Sustainability and Future Proofing: I will make sure that my program is not only easy for me to add new features to, but also easy for another developer to add features to. I will do this by making use of functions. This will allow different features to be easily edited, and will allow the feature to be called upon anywhere in the code without having to re-write a lot of code. I will also make sure that my code follows python conventions to make it as easy for anyone to edit as possible.</li>
+				<li>Usability: I will address this by making sure that the user is always made aware of what they did wrong and what they need to do to fix their error. By using validation and loops, I can make sure that the user gets a second chance to correct their mistake. I will also use .lower() functions at the end of any areas where the user needs to input text. As my code only takes lower case letters as an answer, the .lower() function will turn every letter the user types into a lower case letter, preventing the user from getting frustrated or confused about how to use my program. Doesn't matter if they type in all caps or in all lower case.</li>
+			</ul>
 			<h1>Brief</h1>
 			<p>For this project, I wanted to design and create an online ordering system for a gourmet sandwich bar. I wanted it to be able to list sandwiches that could be ordered, have the ability to let the user pay for the order, add things to their order, remove things from their order, review their order and choose whether their order should be picked up or delivered to them, if it is for delivery, the program should be able to collect user information and add 3 dollars to the total costs. I also wanted the program to only let the user order 5 sandwiches per order.</p>
 			<hr>
-			<h3>Example of adding, committing and pushing to github:</h3>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/git_add.png" alt="adding images">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/to_commit.png" alt="images to commit.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/committed.png" alt="images committed.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/images_pushed.png" alt="images pushed.">
 			<!-- Heading levels -->
 			<h1 id="1234">Sprint 1，2，3 and 4:</h1>
+			<p>Here are images of my sprint board during these 4 sprints:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board1.png" alt="Sprint board image.">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board2.png" alt="Sprint board image.">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board3.png" alt="Sprint board image.">
 			<p>For sprint 1, I planned to make a menu that would display all available options to the user. That was all I wanted the program to do at that stage. <br> Then in sprint 2, 3 and 4 I created the functions that would allow the user to interact with the program further.</p>
 			<p>Sprint 2 included making a function that listed all purchasable sandwiches for the user, sprint 3 included creating a function to add items to an order, and sprint 4 included creating a function that allowed the user to pay for their order. <br>I added the ability to remove items from an order later when I made a loop that ran the menu function more than once, so that there could be something on the user's order to remove.</p>
 			<p>All of these sprints made functions that were very basic editions of what they would be in the future.</p>
@@ -75,13 +80,12 @@
 			<!--<p>Reflection (+ anything about relevant implications)</p>-->
 			<h3>Conclusion for these first 4 sprints:</h3>
 			<p>These four sprints were relatively uneventful and very straight forward/basic, which is why I grouped them together. The errors that I encountered were easily resolved. Quite obviously the program isn't finished and I plan to add many more features to it in the future. I was able to complete these four sprints in about the time of one lesson. In the next four sprints, I plan to make a loop that will allow the program to run more than once at a time (so that the user can observe menu and add things, add things in more than one go, etc...), I plan to allow the user to quit the program/abandon their order, give the user a way to look over their order, and create the ability to only order 5 sandwiches.</p>
-			<p>Here are images of my project board during these 4 sprints:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board1.png" alt="Project board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board2.png" alt="Project board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board3.png" alt="Project board image.">
 			<hr>
 
 			<h1 id="5678">Sprints 5, 6, 7, 8:</h1>
+			<p>Here are images of my sprint board during these 4 sprints:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board4.png" alt="Sprint board image.">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board5.png" alt="Sprint board image.">
 			<p>For these sprints, I plan to add the ability for the program to run more than once at a time (add a loop), add the ability to quit the program, add the ability to review an order, and add the ability to only order 5 sandwiches.</p>
 			<p>Here is proof that I got the abandon order function working:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/abandon_order.png" alt="abandoning order works">
@@ -172,14 +176,15 @@
 			<h3>Conclusion for these sprints:</h3>
 			<p>At the end of these sprints, I successfully made it so that the program would run more than once, I gave the user the ability to abandon the order, I added the ability for the user to review their order, I also made it so that only 5 sandwiches could be ordered at a time. I think that there are definitely things that could be improved on at this stage, for example I could show the user how many of a certain sandwich they've ordered in the thank you message thanking them for adding to their order.</p>
 			<p>In the next 4 sprints, I want to be able to give the user the choice of adding more types of sandwiches to their order before the program goes back to the menu or to remove orders even if they've already removed or added, I would like to give the user the ability to remove sandwiches from their order, I would like to make it so that the user can't pay if they have 0 sandwiches in their order.</p>
-			<p>Here are images of my project board during these 4 sprints:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board4.png" alt="Project board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board5.png" alt="Project board image.">
 			<!--<p>Reflection (+ anything about relevant implications)</p>-->
 			<hr>
 
 			<h1 id="91011">Sprints 9, 10, 11, 12 and 13</h1>
 			<p>In the next 6 sprints, I would like to be able to allow the user to add or remove a sandwich from their order before going back to the menu again, I would like to give the user the ability to remove a sandwich from their order and I would like to make it so that the user cannot pay for an order if they have 0 sandwiches in their order. I would also add the features that ask the user for their details, and if they want their order to be delivered or picked up.</p>
+			<p>Here are images of the sprint board during these 6 sprints:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board6.png" alt="Sprint board image.">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board7.png" alt="Sprint board image.">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board8.png" alt="Sprint board image.">
 			<h3>Error 10</h3>
 			<p>Firstly I tried to make a loop in the adding/removing section of the program, but I accidentally made it so that the user would get stuck in the loop as seen below:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_10_example.png" alt="Not able to break from loop.">
@@ -213,14 +218,19 @@
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Quality_of_life.png" alt="Tells user how many sandwiches they've ordered.">
 			<h3>Conclusion for these sprints</h3>
 			<p>Achieving these sprints bought my program to a stage where most of the fundamental design features had been implemented. What I mean by this is that while there were still things I could add to my program, if the program were left at this stage of development it would be relatively functional, even if there were still bugs to be sorted out. I successfully added the ability for the user to add or remove a sandwich from their order before returning to the menu, I successfully implemented the remove sandwich from order function, and I successfully made it so that the user couldn't pay for their order if they had 0 sandwiches in their order. I also successfully added the feature where the program asks for the user's details, and if they would like their order to be delivered or picked up. While there aren't many major things I would like to add to my program, there are still bugs I would like to get rid of in the next few sprints. In the next few sprints, I would like to make it so that the program runs smoother, meaning I would like to add validation to the program so that the program doesn't break when the user inputs an unexpected value, and I would like to make it so that the user can choose whether or not they would like to view the menu before adding sandwiches to their order.</p>
-			<p>Here are images of the project board during these 6 sprints:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board6.png" alt="Project board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board7.png" alt="Project board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board8.png" alt="Project board image.">
+			<hr>
+			<p>While making this python program, I made many commits and pushes to github. Here is an example of me doing this:</p>
+			<h3>Example of adding, committing and pushing to github:</h3>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/git_add.png" alt="adding images">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/to_commit.png" alt="images to commit.">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/committed.png" alt="images committed.">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/images_pushed.png" alt="images pushed.">
 			<!--<p>Reflection (+ anything about relevant implications)</p>-->
 			<hr>
 
 			<h1 id="1213">Sprints 14 and 15</h1>
+			<p>Here is an image of my sprint board at this stage:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board10.png" alt="Sprint board image.">
 			<p>In these sprints I wanted to clean my program up a little bit. I wanted to add more validation to the program, and I wanted to give the user the option to not see the menu when adding a sandwich to their order.</p>
 			<h3>Error 15</h3>
 			<p>While validating I found out that I forgot to actually remove sandwiches from the user's order once they had done the remove function. Here is a photo of the error:</p>
@@ -258,12 +268,17 @@
 			<p>This error doesn't prevent the program from running, but if I were to do any more work on this program, this would be an error I should fix.</p>
 			<h3>Conclusion for these sprints:</h3>
 			<p>In sprints 14 and 15, I made sure all parts where the user can interact with the program are validated, so that the program doesn't react improperly to unexpected user inputs. I successfully validated most parts of my system, and successfully made it so that the user could choose whether or not they wanted to see the menu when placing sandwiches on their order. If I were to add anything more to my program, I would fix the issue where the 0 at the start of the phone number was missed out, and I would add the ability for past orders to be remembered (sales history remembered). There will always be more things that could be added to my program; more bugs to fix, more features I could add. However at this stage, my program is relatively developed. It is developed to the point that it is functional, and many errors have been fixed as I have shown throughout the multiple sprints.</p>
-			<p>Here is an image of my project board at this stage:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board10.png" alt="Project board image.">
 			<p>Here is an image of some things I would do if I further worked on this program:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board12.png" alt="Project board image.">
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board12.png" alt="Sprint board image.">
 			<hr>
+			<p>Here is an image of my project board. It shows what large goals I have accomplished, and what I could do in the future to further improve the program:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board.png" alt="Project board image.">
 			<h1> Relevant Implications Summary</h1>
+			<ul>
+				<li>Functionality: As shown by the amount of errors that occurred and my reflections on how they occurred and how I fixed them, I have thoroughly tested my code and have made sure that any incorrect inputs don't crash the program. I have used validation in pretty much every scenario where the user has to input an answer, so that the user can't crash the program with the wrong answer.</li>
+				<li>Sustainability and future proofing: I have made pretty much every feature into a function. This means that in future development, it is easy for someone to create a new feature to integrate into the program (They can just make a new function). I have put my code through a python code checker and have corrected any places where I haven't used python conventions. My code now follows python conventions. I have placed comments all throughout my python file to allow others to figure out what everything does clearly, this not only makes it easier for me to make additions to my program in the future as I won't have to guess what everything does, but it also makes it clear to others what is happening so it is easier for them to edit my code as well.</li>
+				<li>Usability: This has been addressed as I have made sure that everywhere that the user could put an input has been validated. Each time the user has to type a letter, the .lower() function I have used allows the user to type their answer in caps or in lower case without the program crashing or refusing an otherwise valid answer. Everytime the program doesn't accept a user's input it prints a message as to what went wrong, what can be done to fix said error, and it gives the user a second chance to answer.</li>
+			</ul>
 
 
 
