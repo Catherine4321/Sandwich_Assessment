@@ -43,22 +43,32 @@
 			<p>For this project, I wanted to design and create an online ordering system for a gourmet sandwich bar. I wanted it to be able to list sandwiches that could be ordered, have the ability to let the user pay for the order, add things to their order, remove things from their order, review their order and choose whether their order should be picked up or delivered to them, if it is for delivery, the program should be able to collect user information and add 3 dollars to the total costs. I also wanted the program to only let the user order 5 sandwiches per order.</p>
 			<hr>
 			<!-- Heading levels -->
-			<h1 id="1234">Sprint 1，2，3 and 4:</h1>
+			<h1 id="1234">Sprint 1, 2, 3 and 4:</h1>
 			<p>Here are images of my sprint board during these 4 sprints:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board1.png" alt="Sprint board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board2.png" alt="Sprint board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board3.png" alt="Sprint board image.">
+			<div class="row">
+				<div class="column">
+					<img class="column-img"src="/Planning_site_fruitbowl/assets/img/Project_board1.png" alt="Sprint board image.">
+				</div>
+				<div class="column">
+					<img class="column-img" src="/Planning_site_fruitbowl/assets/img/Project_board2.png" alt="Sprint board image.">
+				</div>
+				<div class="column">
+					<img class="column-img" src="/Planning_site_fruitbowl/assets/img/Project_board3.png" alt="Sprint board image.">
+ 				</div>
+			</div>
 			<p>For sprint 1, I planned to make a menu that would display all available options to the user. That was all I wanted the program to do at that stage. <br> Then in sprint 2, 3 and 4 I created the functions that would allow the user to interact with the program further.</p>
 			<p>Sprint 2 included making a function that listed all purchasable sandwiches for the user, sprint 3 included creating a function to add items to an order, and sprint 4 included creating a function that allowed the user to pay for their order. <br>I added the ability to remove items from an order later when I made a loop that ran the menu function more than once, so that there could be something on the user's order to remove.</p>
 			<p>All of these sprints made functions that were very basic editions of what they would be in the future.</p>
-			<h3>Image of first error: This error would have occurred in sprint 1</h3>
+			<p>Here is an image of my plan drawings for the first 4 sprints:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/First_plan_drawing.png" alt="First plan image.">
+			<h3>Image of first error</h3>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/First_error.png" alt="Image of first error">
 			<p>In this image, it shows that I got an error where even if I inputted an expected answer, the program would go straight to the else condition. The issue was I accidentally left off the end brackets from the .lower() I put at the end of the input function to ensure that all user input here would be read in lower case letters, to ensure that capital letters wouldn't confuse my system.</p>
 			<p>How did I fix this error: I added the brackets at the end of this line.</p>
 			<p>One thing I thought about doing was adding all of the user's items to a list to keep track of them. This could have its advantages as then I could easily access every name of every sandwich the user ordered. However, I decided in the end that it would be easier for me to not use a list to store all of the user's orders. For one, it could get messy if the user ordered the same sandwich more than once. I had a better solution for storing the user's order. Instead of keeping track of every name of every sandwich the user ordered, I added an extra variable, a number, to the end of each list in the multidimensional list of sandwiches.</p>
 			<p>Everytime the user ordered a specific sandwich, the number at the end of the list containing that sandwich's information would go up by one. This would be much simpler to code and deal with in the long term, as instead of making a long list of sandwich names and having that sandwich's information end up in two separate lists, I would be able to have one list and simply count how many of that sandwich was ordered. I also implemented a counter that increased by how many sandwiches were being ordered in total, so that the user could never order more than 5 sandwiches. <br>Overall: single number at end of list prevented me from making two multidimensional lists of essentially the same thing (lists of sandwich information), and made the code easier to work with and tidier due to this lack of repetition.</p>
 			<p>In this earlier version however, I still had it as a list. This is important to consider for the next error.</p>
-			<h3>Error 2: This would have occured during sprint 3</h3>
+			<h3>Error 2</h3>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Second_error.png" alt="Image of Second error">
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Code_of_second_error.png" alt="Code of second error">
 			<p>In this error, what happened was I first added the sandwich that the user chose to the order list, then I tried to reference that item in the new list to print a thank you message. What I forgot to do was add a -1 to the length of the list, so it was trying to reference an item in the list that did not exist. I tried to use the value of the length of the list minus one to access the latest user order, but I forgot the -1.</p>
@@ -75,6 +85,7 @@
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/early_receipt.png" alt="example of an earlier version of receipt">
 			<p>Of course, it is unreasonable to ask a user to pay a price with more than 2 decimal places. I used the .round() function to round the price to two decimal places because I soon realised how ridiculous these prices were.</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/with_round.png" alt="Image of rounding occuring in price">
+			<br>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/where_round_is_in_code.png" alt="area of code where the round function talked about is">
 			<p>Above, I've added the round function to round the final price to a more reasonable number. This is seen in the code, and an example of this working is above.</p>
 			<!--<p>Reflection (+ anything about relevant implications)</p>-->
@@ -84,13 +95,25 @@
 
 			<h1 id="5678">Sprints 5, 6, 7, 8:</h1>
 			<p>Here are images of my sprint board during these 4 sprints:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board4.png" alt="Sprint board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board5.png" alt="Sprint board image.">
+			<div class="row">
+				<div class="column2">
+					<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board4.png" alt="Sprint board image.">
+				</div>
+				<div class="column2">
+					<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board5.png" alt="Sprint board image.">
+				</div>
+			</div>
 			<p>For these sprints, I plan to add the ability for the program to run more than once at a time (add a loop), add the ability to quit the program, add the ability to review an order, and add the ability to only order 5 sandwiches.</p>
-			<p>Here is proof that I got the abandon order function working:</p>
+			<p>Here is a plan drawing that shows how I plan to put the menu function in a loop to make the program go more than once:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/plan_drawing_2.png" alt="Second plan image.">
+			<p>Here is a plan drawing that shows how I plan to make the abandon process working. It also shows how I intend to make the review function work and how I intend to make it so that user's can't pay for sandwiches if they have no sandwiches in their order:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/plan_drawing_3.png" alt="Third plan image.">
+			<p>Here is proof that I got the abandon order process working:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/abandon_order.png" alt="abandoning order works">
+			<p>Here is a plan image showing how I planned to restrict the amount of sandwiches a user could order:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/plan_drawing_four.png" alt="Fourth plan image.">
 			<p>I got a few errors while attempting to restrict the user's amount of sandwiches they could order. Here is a picture showing this failure:</p>
-			<h3>Fail 3:</h3>
+			<h3>Error 3:</h3>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/5_sandwiches_fail.png" alt="Image showing you can order more than 5 sandwiches">
 			<p>Here is the code that was responsible for this issue:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/5_sandwiches_fail_code.png" alt="code responsible for fail">
@@ -103,7 +126,7 @@
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/sending_to_pay.png" alt="Sending user straight to pay when user_order = 5">
 			<p>Here is the code responsible for sending the user straight to the pay function when they've ordered 5 sandwiches:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/code_sending_to_pay.png" alt="Code that sends straight to pay">
-			<p>I'm not sure if I made this into a sprint, but at some stage it occurred to me that someone might try to order a sandwich that wasn't on the list of sandwiches. I tried to combat this, but below is an image of an error when this happened. What happened was I tried to make it so that the user wouldn't be able to access a sandwich with an id number greater than the length of the list, but it seems I added a -1 to the end of the length function, which wasn't needed. It also seems that instead of printing what went wrong when the user needed to re-input their choice, I made it an input so the system asked twice which sandwich the user wanted before it took a response.</p>
+			<p>It occurred to me that someone might try to order a sandwich that wasn't on the list of sandwiches. I tried to combat this, but below is an image of an error when this happened. What happened was I tried to make it so that the user wouldn't be able to access a sandwich with an id number greater than the length of the list, but it seems I added a -1 to the end of the length function, which wasn't needed. It also seems that instead of printing what went wrong when the user needed to re-input their choice, I made it an input so the system asked twice which sandwich the user wanted before it took a response.</p>
 			<h3>Error 4:</h3>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_4.png" alt="Error number 4">
 			<p>Here I show how the code was to cause this error:</p>
@@ -182,9 +205,17 @@
 			<h1 id="91011">Sprints 9, 10, 11, 12 and 13</h1>
 			<p>In the next 6 sprints, I would like to be able to allow the user to add or remove a sandwich from their order before going back to the menu again, I would like to give the user the ability to remove a sandwich from their order and I would like to make it so that the user cannot pay for an order if they have 0 sandwiches in their order. I would also add the features that ask the user for their details, and if they want their order to be delivered or picked up.</p>
 			<p>Here are images of the sprint board during these 6 sprints:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board6.png" alt="Sprint board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board7.png" alt="Sprint board image.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board8.png" alt="Sprint board image.">
+			<div class="row">
+				<div class="column">
+					<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board6.png" alt="Sprint board image.">
+				</div>
+				<div class="column">
+					<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board7.png" alt="Sprint board image.">
+				</div>
+				<div class="column">
+					<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board8.png" alt="Sprint board image.">
+				</div>
+			</div>
 			<h3>Error 10</h3>
 			<p>Firstly I tried to make a loop in the adding/removing section of the program, but I accidentally made it so that the user would get stuck in the loop as seen below:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_10_example.png" alt="Not able to break from loop.">
@@ -221,17 +252,32 @@
 			<hr>
 			<p>While making this python program, I made many commits and pushes to github. Here is an example of me doing this:</p>
 			<h3>Example of adding, committing and pushing to github:</h3>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/git_add.png" alt="adding images">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/to_commit.png" alt="images to commit.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/committed.png" alt="images committed.">
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/images_pushed.png" alt="images pushed.">
-			<!--<p>Reflection (+ anything about relevant implications)</p>-->
+			<div class="row">
+				<div class="column2">
+				<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/git_add.png" alt="adding images">
+				</div>
+				<div class="column2">
+					<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/to_commit.png" alt="images to commit.">
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="column2">
+					<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/committed.png" alt="images committed.">
+				</div>
+				<div class="column2">
+					<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/images_pushed.png" alt="images pushed.">
+				</div>
+			</div>
+				<!--<p>Reflection (+ anything about relevant implications)</p>-->
 			<hr>
 
 			<h1 id="1213">Sprints 14 and 15</h1>
 			<p>Here is an image of my sprint board at this stage:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board10.png" alt="Sprint board image.">
 			<p>In these sprints I wanted to clean my program up a little bit. I wanted to add more validation to the program, and I wanted to give the user the option to not see the menu when adding a sandwich to their order.</p>
+			<p>Here is an image showing how I was going to make it so that the program collected user information:</p>
+			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/plan_drawing_6.png" alt="Sixth plan image.">
 			<h3>Error 15</h3>
 			<p>While validating I found out that I forgot to actually remove sandwiches from the user's order once they had done the remove function. Here is a photo of the error:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Error_15.png" alt="Doesn't reset the user's order.">
@@ -268,9 +314,8 @@
 			<p>This error doesn't prevent the program from running, but if I were to do any more work on this program, this would be an error I should fix.</p>
 			<h3>Conclusion for these sprints:</h3>
 			<p>In sprints 14 and 15, I made sure all parts where the user can interact with the program are validated, so that the program doesn't react improperly to unexpected user inputs. I successfully validated most parts of my system, and successfully made it so that the user could choose whether or not they wanted to see the menu when placing sandwiches on their order. If I were to add anything more to my program, I would fix the issue where the 0 at the start of the phone number was missed out, and I would add the ability for past orders to be remembered (sales history remembered). There will always be more things that could be added to my program; more bugs to fix, more features I could add. However at this stage, my program is relatively developed. It is developed to the point that it is functional, and many errors have been fixed as I have shown throughout the multiple sprints.</p>
-			<p>Here is an image of some things I would do if I further worked on this program:</p>
-			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board12.png" alt="Sprint board image.">
-			<hr>
+			<br>
+			<p>If I were to continue this project, I would first work on turning the validation into a separate function and I would prevent any zeros at the front of phone numbers from being disregarded.</p>
 			<p>Here is an image of my project board. It shows what large goals I have accomplished, and what I could do in the future to further improve the program:</p>
 			<img class="img-responsive" src="/Planning_site_fruitbowl/assets/img/Project_board.png" alt="Project board image.">
 			<h1> Relevant Implications Summary</h1>
@@ -279,6 +324,14 @@
 				<li>Sustainability and future proofing: I have made pretty much every feature into a function. This means that in future development, it is easy for someone to create a new feature to integrate into the program (They can just make a new function). I have put my code through a python code checker and have corrected any places where I haven't used python conventions. My code now follows python conventions. I have placed comments all throughout my python file to allow others to figure out what everything does clearly, this not only makes it easier for me to make additions to my program in the future as I won't have to guess what everything does, but it also makes it clear to others what is happening so it is easier for them to edit my code as well.</li>
 				<li>Usability: This has been addressed as I have made sure that everywhere that the user could put an input has been validated. Each time the user has to type a letter, the .lower() function I have used allows the user to type their answer in caps or in lower case without the program crashing or refusing an otherwise valid answer. Everytime the program doesn't accept a user's input it prints a message as to what went wrong, what can be done to fix said error, and it gives the user a second chance to answer.</li>
 			</ul>
+			<h3>Video run through:</h3>
+			<p>Here is a video of me using my program and testing it:</p>
+			<div class="video-container">
+				<video width="80%" controls>
+					<source src="/Planning_site_fruitbowl/assets/img/Trial_video_1.mov">
+					Your browser does not support the video tag.
+				</video>
+			</div>
 
 
 

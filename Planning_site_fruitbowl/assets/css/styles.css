@@ -175,7 +175,7 @@ Single styles
 .img-responsive { 
     display: block;
     margin: auto;
-    max-width: 100%; }
+    max-width: 80%; }
 
 .btn
 {
@@ -273,4 +273,40 @@ Wide styles
 		padding: 0;
 		border-bottom: 0;
 	}
+}
+
+.column-img{
+    max-width: 100%
+}
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  display: block;
+  width: 30%;
+  padding: 5px;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column2 {
+  float: left;
+  width: 45%;
+  padding: 5px;
+}
+
+.column3 {
+  float: left;
+  width: 45%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.video-container {
+    text-align: center;
+
 }
