@@ -135,8 +135,6 @@ def modify():
             get_remove = True
             get_remove_amount = True
             if user_order == 0:
-                get_remove = False
-                get_remove_amount = False
                 print("There's nothing in your order! Try again when you've added something to your order!")
                 return
             review()
@@ -254,10 +252,28 @@ def pay():
     user_order = 0
 
 
+# function that lets user abandon their current order
+def abandon():
+    """Allow the user to abandon current order"""
+    global user_order
+    global order_number
+    # code that removes all sandwiches from order
+    for i in range(0, len(sandwiches) - 1):
+        if sandwiches[i][2] > 0:
+            sandwiches[i][2] = 0
+    # code that resets counter that counts how many sandwiches in order
+    user_order = 0
+    # line that adds 1 to the order number
+    order_number += 1
+    print("All sandwiches added to the order now are on a new order.")
+
+
 # function that allows users to choose what they want to do
 def menu():
     """Allow the user to see a list of possible actions for this program."""
     global running_order
+    global user_order
+    global order_number
     get_user_input = True
     welcome_message = """
 Welcome to Marsden Gourmet Sandwich Bar's online ordering system.
@@ -269,34 +285,39 @@ m) Modify order
 r) Review order
 p) Pay for order
 a) Abandon order
+q) Quit program
     """
     lines = "-"*59
-    print(lines)
-    print(welcome_message)
-    print(lines)
     # loop that validates the user's answer to what they would like to do
     while get_user_input is True:
+        print(lines)
+        print(welcome_message)
+        print(lines)
         answer = input("What would you like to do: ").lower()
         if answer == 's':
             show(sandwiches)
-            get_user_input = False
             return_to_menu()
+            get_user_input = False
         elif answer == 'm':
             modify()
-            get_user_input = False
             return_to_menu()
+            get_user_input = False
         elif answer == 'r':
             review()
-            get_user_input = False
             return_to_menu()
+            get_user_input = False
         elif answer == 'p':
             pay()
-            get_user_input = False
             return_to_menu()
+            get_user_input = False
         elif answer == 'a':
+            abandon()
+            return_to_menu()
+            get_user_input = False
+        elif answer == 'q':
+            print("Thank-you for using our services. No sandwiches have been purchased.")
             running_order = False
             get_user_input = False
-            print("Thank-you for using our services. No sandwiches have been purchased.")
         else:
             print("I didn't expect that answer. Try again.")
 
